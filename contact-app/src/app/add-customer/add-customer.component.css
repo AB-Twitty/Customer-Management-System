@@ -1,0 +1,12 @@
+#img {
+    border: var(--bs-card-border-width) solid var(--bs-card-border-color);
+    box-shadow: 0 .25rem .25rem rgba(0,0,0,.075)!important;
+    width: 200px;
+    height: 200px;
+    margin-inline-start: 30%;
+    cursor: pointer;
+}
+
+input.ng-invalid, select.ng-invalid  {
+    border: 1px solid red;
+}

@@ -1,0 +1,53 @@
+<div class="card mb-4 mt-5" style="margin-inline-end:10% ;">
+    <div class="card-header">Edit Customer:</div>
+    <div class="card-body">
+        <form [formGroup]="editCustomerForm" (ngSubmit)="onEdit()">
+            <div class="row gx-3 mb-3">
+                <div class="col-md-6">
+                    <label class="small mb-1">First name:</label>
+                    <input class="form-control" type="text" placeholder="First Name" formControlName="firstName">
+                    <span *ngIf="!editCustomerForm.get('firstName')?.valid" 
+                        class="text-danger">{{ editCustomerForm.get('firstName')?.errors?.[0] }}</span>
+                </div>
+                <div class="col-md-6">
+                    <label class="small mb-1">Last name:</label>
+                    <input class="form-control" type="text" placeholder="Last Name" formControlName="lastName">
+                    <span *ngIf="!editCustomerForm.get('lastName')?.valid" 
+                        class="text-danger">{{ editCustomerForm.get('lastName')?.errors?.[0] }}</span>
+                </div>
+            </div>
+            <div class="row gx-3 mb-3">
+                <div class="col-md-6">
+                    <label class="small mb-1">National ID:</label>
+                    <input class="form-control" type="text" placeholder="National ID" formControlName="nationalId">
+                    <span *ngIf="!editCustomerForm.get('nationalId')?.valid" 
+                        class="text-danger">{{ editCustomerForm.get('nationalId')?.errors?.[0] }}</span>
+                </div>
+                <div class="col-md-6">
+                    <label class="small mb-1">Birth Date:</label>
+                    <input class="form-control" type="date" formControlName="birthDate">
+                    <span *ngIf="!editCustomerForm.get('birthDate')?.valid" 
+                        class="text-danger">{{ editCustomerForm.get('birthDate')?.errors?.[0] }}</span>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="small mb-1">Nationality:</label>
+                <select class="form-select" formControlName="nationalityId">
+                    <option disabled value="0">--Nationality--</option>
+                    <option *ngFor="let nationality of nationalities" 
+                        [value]="nationality.id">{{ nationality.nationalityName }}</option>
+                </select>
+                <span *ngIf="!editCustomerForm.get('nationalityId')?.valid" 
+                        class="text-danger">{{ editCustomerForm.get('nationalityId')?.errors?.[0] }}</span>
+            </div>
+            <div class="form-check mb-2">
+                <input class="form-check-input ms-0" type="checkbox" formControlName="isActive">
+                <label class="form-check-label ms-1">Active</label>
+            </div>
+
+            <button type="submit" class="btn btn-success" style="margin-inline-start: 80%;">Save</button>
+            <a class="btn btn-outline-danger ms-3" routerLink="../details">Cancel</a>
+        </form>
+    </div>
+</div>
+

@@ -1,0 +1,27 @@
+<div class="col mb-3" style="margin-top: 90px;">
+    <div class="card shadow-sm">
+        <img src="../../assets/images/{{customer.imageURL}}" id="img" style="width: 157px;height: 157px;margin-top:-65px" alt="Customer Image"
+            class="img-fluid img-thumbnail rounded-circle border-0 mb-3 ms-4">
+        <div class="card-body">
+            <span class="fs-5 fw-semibold">{{customer.firstName | titlecase}} {{customer.lastName | titlecase}}</span><hr/>
+            <p class="card-text">
+                <span class="fs-7 fw-semibold ms-3 text-muted">National ID: {{customer.nationalId}}</span><br/>
+                <span class="fs-7 fw-semibold ms-3 text-muted">Nationality: {{customer.nationality}}</span><br/>
+                <span class="fs-7 fw-semibold ms-3 text-muted">Birth Date: {{customer.birthDate}}</span>
+            </p>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary" 
+                        routerLink="/customer-account/{{customer.id}}/details"><i class="bi bi-person"></i>  View</button>
+                    <button *ngIf="!customer.isDeleted" type="button" class="btn btn-sm btn-outline-secondary"
+                        routerLink="/customer-account/{{customer.id}}/edit"><i class="bi bi-pencil-square"></i>  Edit</button> 
+                </div>
+                <div *ngIf="!customer.isDeleted">
+                    <i *ngIf="customer.isActive" class="bi bi-bookmark-check-fill"></i>
+                    <i *ngIf="!customer.isActive" class="bi bi-bookmark"></i>
+                </div>
+                <i *ngIf="customer.isDeleted" class="bi bi-trash3" style="color:red;"></i>
+            </div>
+        </div>
+    </div>
+</div>

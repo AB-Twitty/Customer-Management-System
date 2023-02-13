@@ -1,0 +1,8 @@
+<div>
+    <div class="mt-4">
+      <a class="btn btn-secondary mb-3"
+        routerLink="../add-contact"><i class="bi bi-box-arrow-up-right"></i>  Add Contact</a>
+      <app-contact-item *ngFor="let contact of contactService.contacts" [contact]="contact"></app-contact-item>
+    </div>
+</div>
+

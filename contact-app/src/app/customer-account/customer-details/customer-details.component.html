@@ -1,0 +1,71 @@
+<div class="row" style="padding-inline-end: 20%;" *ngIf="!customerService.customerDetails.isDeleted">
+    <button class="btn btn-danger col-1 mt-3 ms-auto" (click)="onDelete(customerService.customerDetails.id)">Delete</button>
+</div> 
+<div class="row" style="padding-inline-end: 20%;" *ngIf="customerService.customerDetails.isDeleted">
+    <button class="btn btn-outline-danger col-1 mt-3 ms-auto" (click)="onRestore(customerService.customerDetails.id)">Restore</button>
+</div> 
+<div class="card mb-4 mt-3" style="margin-inline-end:10% ;">
+    <div class="card-header">
+        <div class="row ms-1">
+            Customer Details:
+            <div class="col-1 ms-lg-auto" style="width: 5%;">
+                <div *ngIf="!customerService.customerDetails.isDeleted">
+                    <i *ngIf="customerService.customerDetails.isActive" class="bi bi-bookmark-check-fill"></i>
+                    <i *ngIf="!customerService.customerDetails.isActive" class="bi bi-bookmark"></i>
+                </div>
+                <i *ngIf="customerService.customerDetails.isDeleted" class="bi bi-trash3" style="color:red;"></i>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="input-group-text" style="margin-inline-start:93%;" *ngIf="!customerService.customerDetails.isDeleted">
+            <i class="bi bi-pencil-square"></i>
+            <a class="ms-1" routerLink="../edit">Edit</a>
+        </div>
+        <form>
+            <div class="row gx-3 mb-3">
+                <div class="col-md-6">
+                    <label class="small mb-1">First name:</label>
+                    <input class="form-control" [value]="customerService.customerDetails.firstName" disabled>
+                </div>
+                <div class="col-md-6">
+                    <label class="small mb-1">Last name:</label>
+                    <input class="form-control" [value]="customerService.customerDetails.lastName" disabled>
+                </div>
+            </div>
+            <div class="row gx-3 mb-3">
+                <div class="col-md-6">
+                    <label class="small mb-1">National ID:</label>
+                    <input class="form-control" [value]="customerService.customerDetails.nationalId" disabled>
+                </div>
+                <div class="col-md-6">
+                    <label class="small mb-1">Birth Date:</label>
+                    <input class="form-control" [value]="customerService.customerDetails.birthDate" disabled>
+                </div>
+            </div>
+            <div class="mb-3"> <label class="small mb-1">Nationality:</label>
+                <input class="form-control" [value]="customerService.customerDetails.nationality" disabled>
+            </div>
+            <div class="row gx-3 mb-3">
+                <div class="col-md-6">
+                    <label class="small mb-1">Creator Username:</label>
+                    <input class="form-control" [value]="customerService.customerDetails.creatorName" disabled>
+                </div>
+                <div class="col-md-6">
+                    <label class="small mb-1">Creation Date:</label>
+                    <input class="form-control" [value]="customerService.customerDetails.creationDate" disabled>
+                </div>
+            </div>
+            <div class="row gx-3 mb-3">
+                <div class="col-md-6">
+                    <label class="small mb-1">Modifier Username:</label>
+                    <input class="form-control" [value]="customerService.customerDetails.modifierName" disabled>
+                </div>
+                <div class="col-md-6">
+                    <label class="small mb-1">Last Modified Date:</label>
+                    <input class="form-control" [value]="customerService.customerDetails.lastModifiedDate" disabled>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

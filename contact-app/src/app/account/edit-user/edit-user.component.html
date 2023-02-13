@@ -1,0 +1,36 @@
+<div class="card mb-4 mt-5" style="margin-inline-end:10% ;">
+  <div class="card-header">Edit Account</div>
+  <div class="card-body">
+      <form [formGroup]="editAccountForm" (ngSubmit)="onEditProfile()">
+          <div class="mb-3">
+              <label class="small mb-1">Name:</label>
+              <div class="input-group">
+                  <span class="input-group-text"><i class="bi bi-person"></i></span>
+                  <input class="form-control" type="text" placeholder="Name" formControlName="name">
+              </div>
+              <span *ngIf="!editAccountForm.get('name')?.valid" 
+                class="text-danger">{{ editAccountForm.get('name')?.errors?.[0] }}</span>
+          </div>
+          <div class="mb-3">
+              <label class="small mb-1">Username:</label>
+              <div class="input-group">
+                  <span class="input-group-text">@</span>
+                  <input class="form-control" type="text" placeholder="Username" formControlName="username">
+              </div>
+              <span *ngIf="!editAccountForm.get('username')?.valid" 
+                class="text-danger">{{ editAccountForm.get('username')?.errors?.[0] }}</span>
+          </div>
+          <div class="mb-3">
+              <label class="small mb-1">Email address:</label>
+              <div class="input-group">
+                  <span class="input-group-text"><i class="bi bi-envelope-open"></i></span>
+                  <input class="form-control" type="email" placeholder="Email" formControlName="email">
+              </div>
+              <span *ngIf="!editAccountForm.get('email')?.valid" 
+                class="text-danger">{{ editAccountForm.get('email')?.errors?.[0] }}</span>
+          </div>
+          <button type="submit" class="btn btn-success" style="margin-inline-start: 80%;">Save</button>
+          <a class="btn btn-outline-danger ms-3" routerLink="../profile">Cancel</a>
+      </form>
+  </div>
+</div>

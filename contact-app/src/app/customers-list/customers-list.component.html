@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="input-group-text mt-3">
+    <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
+      <div class="row">
+        <div class="col-md-2">
+          <input class="form-control" type="text" placeholder="Name" formControlName="name">
+        </div>
+        <div class="col-md-2">
+          <select class="form-select" formControlName="nationalityId">
+            <option disabled value="null">--Nationality--</option>
+            <option *ngFor="let nationality of nationalities" 
+                [value]="nationality.id">{{ nationality.nationalityName }}</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <input class="form-control" type="number" placeholder="Age From" formControlName="startAge">
+        </div>
+        <div class="col-md-2">
+          <input class="form-control" type="number" placeholder="Age To" formControlName="endAge">
+        </div>
+        <div class="form-check col-md-1 mt-2">
+          <label class="form-check-label">Active</label>
+          <input class="form-check-input" type="checkbox" formControlName="isActive">
+        </div>
+        <div class="form-check col-md-1 mt-2">
+          <label class="form-check-label">Deleted</label>
+          <input class="form-check-input" type="checkbox" formControlName="isDeleted">
+        </div>
+        <div class="col-md-2 ms-auto">
+          <button type="submit" class="btn btn-primary ms-2">Search</button>
+          <button type="button" class="btn btn-danger ms-3" (click)="onReset()">Reset</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <a class="btn btn-secondary mt-3" style="margin-inline-start: 85%;"
+    routerLink="/add-customer"><i class="bi bi-box-arrow-up-right"></i>  Add Customer</a>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+      <app-customer-item *ngFor="let customer of customers" [customer]="customer"></app-customer-item>
+    </div>
+    <div class="ms-5">
+      <ul class="pagination justify-content-center">
+        <li class="page-item">
+          <a class="page-link" (click)="onPageClick(1)" [routerLink]="['../', 1]" >
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li class="page-item" *ngFor="let item of [].constructor(pageCount); let i = index">
+          <a class="page-link" (click)="onPageClick(i+1)" [routerLink]="['../', i+1]">{{ i+1 }}</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" (click)="onPageClick(pageCount)" [routerLink]="['../', pageCount]">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+</div>

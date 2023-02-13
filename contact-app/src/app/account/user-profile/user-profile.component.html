@@ -1,0 +1,35 @@
+<div class="card mb-4 mt-5" style="margin-inline-end:10% ;">
+    <div class="card-header">Account Details</div>
+    <div class="card-body">
+        <div class="input-group-text"style="margin-inline-start:93%;">
+            <i class="bi bi-pencil-square"></i>
+            <a class="ms-1" routerLink="../edit-profile">Edit</a>
+        </div>
+        <form>
+            <div class="mb-3">
+                <label class="small mb-1" for="inputName">Name:</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-person"></i></span>
+                    <input class="form-control" id="inputName" type="text" placeholder="Enter your Name"
+                        [value]="currentUser.name" disabled>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="small mb-1" for="inputUsername">Username:</label>
+                <div class="input-group">
+                    <span class="input-group-text">@</span>
+                    <input class="form-control" id="inputUsername" type="text" placeholder="Enter your username"
+                    [value]="currentUser.username" disabled>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="small mb-1" for="inputEmailAddress">Email address:</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-envelope-open"></i></span>
+                    <input class="form-control" id="inputEmailAddress" type="email" placeholder="Enter your email address"
+                    [value]="currentUser.email" disabled>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

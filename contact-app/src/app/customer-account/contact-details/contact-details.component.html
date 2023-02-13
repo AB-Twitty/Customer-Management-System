@@ -1,0 +1,42 @@
+<div class="card mb-4 mt-5" style="margin-inline-end:10% ;">
+    <div class="card-header">Contact Details</div>
+    <div class="card-body">
+        <div *ngIf="!contactService.contact.isDeleted" class="input-group-text" style="margin-inline-start:93%;">
+            <i class="bi bi-pencil-square"></i>
+            <a class="ms-1" routerLink="../../edit-contact/{{contactService.contact.id}}">Edit</a>
+        </div>
+        <form>
+            <div class="row gx-3 mb-3">
+                <div class="col-md-6">
+                    <label class="small mb-1">Contact:</label>
+                    <input class="form-control" [value]="contactService.contact.contact" disabled>
+                </div>
+                <div class="col-md-6">
+                    <label class="small mb-1">Contact Type:</label>
+                    <input class="form-control" [value]="contactService.contact.contactType.typeName" disabled>
+                </div>
+            </div>
+            <div class="row gx-3 mb-3">
+                <div class="col-md-6">
+                    <label class="small mb-1">Creator Username:</label>
+                    <input class="form-control" [value]="contactService.contact.creator" disabled>
+                </div>
+                <div class="col-md-6">
+                    <label class="small mb-1">Creation Date:</label>
+                    <input class="form-control" [value]="contactService.contact.creationDate" disabled>
+                </div>
+            </div>
+            <div class="row gx-3 mb-3">
+                <div class="col-md-6">
+                    <label class="small mb-1">Modifier Username:</label>
+                    <input class="form-control" [value]="contactService.contact.modifier" disabled>
+                </div>
+                <div class="col-md-6">
+                    <label class="small mb-1">Last Modified Date:</label>
+                    <input class="form-control" [value]="contactService.contact.lastModifiedDate" disabled>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

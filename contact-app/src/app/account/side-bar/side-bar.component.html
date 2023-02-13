@@ -1,0 +1,35 @@
+<div class="flex-shrink-0 p-3 bg-white shadow-sm " style="width: 280px; height: 100%; min-height: 80vh;">
+    <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+        <span class="fs-4 fw-semibold ms-2">{{ accountService.getCurrentUser()?.name | titlecase }}</span>
+    </a>
+    <ul class="list-unstyled ps-0">
+        <li class="mb-1">
+            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="true">
+                Dashboard
+            </button>
+            <div class="collapse show" id="dashboard-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Customers</a></li>
+                    <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Contacts</a></li>
+                    <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Attachments</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="border-top my-3"></li>
+        <li class="mb-1">
+            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+                Account
+            </button>
+            <div class="collapse" id="account-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a routerLink="profile" class="link-dark d-inline-flex text-decoration-none rounded">Profile</a></li>
+                    <li><a routerLink="edit-profile" class="link-dark d-inline-flex text-decoration-none rounded">Edit</a></li>
+                    <li><a (click)="onLogout()" class="link-dark d-inline-flex text-decoration-none rounded" style="cursor: pointer;">Sign out</a></li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="b-example-divider b-example-vr"></div>

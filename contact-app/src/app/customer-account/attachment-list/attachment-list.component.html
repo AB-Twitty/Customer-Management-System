@@ -1,0 +1,15 @@
+<div>
+  <form>
+    <div class="row gx-3 mb-3 mt-3 ms-4">
+      <div class="col-md-6">
+          <input class="form-control" type="file" (change)="inputChange($event)">
+      </div>
+      <div class="col-md-6">
+          <button type="submit" class="btn btn-secondary" (click)="onAddAttachment()"><i class="bi bi-box-arrow-up-right"></i>  Add</button>
+      </div>
+  </div>
+  </form>
+    <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 g-3 mt-4" style="margin-inline-end: 10%;">
+      <app-attachment-item *ngFor="let attachment of attachments" [attachment]="attachment"></app-attachment-item>
+    </div>
+</div>

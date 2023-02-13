@@ -1,0 +1,31 @@
+<div class="card mb-3" style="width: 90%;">
+    <div class="card-body">
+        <div class="d-flex flex-column flex-lg-row">
+            <span class="avatar avatar-text rounded-3 me-4 mb-2">
+                <div class="col-1">
+                    <i *ngIf="contact.contactType.typeName=='Telephone'" class="bi bi-telephone-fill"></i>
+                    <i *ngIf="contact.contactType.typeName=='Email'" class="bi bi-envelope-fill"></i>
+                    <span *ngIf="!contact.isDeleted">
+                        <i *ngIf="contact.isActive" class="bi bi-bookmark-check-fill"></i>
+                        <i *ngIf="!contact.isActive" class="bi bi-bookmark"></i>
+                    </span>
+                    <i *ngIf="contact.isDeleted" class="bi bi-trash3" style="color:red;"></i>
+                </div>
+            </span>
+            <div class="row flex-fill">
+                <div class="col-sm-5">
+                    <h4 class="h5">{{contact.contact}}</h4>
+                    <span class="text-black-50">Added: {{contact.creationDate}}</span>
+                </div>
+                <div class="col-sm-4 py-2"> 
+                    
+                </div>
+                <div class="col-sm-3 text-lg-end">
+                    <a class="btn btn-outline-secondary me-2" [routerLink]="['../contact-details/', contact.id]">View</a>
+                    <button *ngIf="!contact.isDeleted" class="btn btn-danger ms-2" (click)="onDelete(contact.id)">Delete</button>
+                    <button *ngIf="contact.isDeleted" class="btn btn-outline-danger ms-1" (click)="onRestore(contact.id)">restore</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

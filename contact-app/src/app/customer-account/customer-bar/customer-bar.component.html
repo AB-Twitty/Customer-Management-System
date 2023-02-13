@@ -1,0 +1,41 @@
+<div class="flex-shrink-0 p-3 bg-white shadow-sm" style="width: 280px; height: 100%; min-height: 80vh;">
+    <input type="file" class="form-control" accept="image/*" (change)="onImageChange($event)" hidden #imageInput>
+    <img src="../../../assets/images/{{customerService.customerDetails.imageURL}}" id="img" 
+            alt="Customer Image" (click)="onImageClick(imageInput)"
+            class="img-fluid img-thumbnail rounded-circle border-0 mb-3 ms-5">
+    <div href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+        <span class="fs-4 fw-semibold ms-2">{{ customerService.customerDetails.firstName | titlecase}} 
+            {{ customerService.customerDetails.lastName | titlecase }}
+        </span>
+    </div>
+    <ul class="list-unstyled ps-0">
+        <li class="mb-1">
+            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="true">
+                Dashboard
+            </button>
+            <div class="collapse show" id="dashboard-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a class="link-dark d-inline-flex text-decoration-none rounded" [routerLink]="['contact-list']">Contacts</a></li>
+                    <li><a class="link-dark d-inline-flex text-decoration-none rounded" [routerLink]="['attachment-list']">Attachments</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="border-top my-3"></li>
+        <li class="mb-1">
+            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+                Account
+            </button>
+            <div class="collapse" id="account-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a routerLink="details" class="link-dark d-inline-flex text-decoration-none rounded">Details</a></li>
+                    <li *ngIf="!customerService.customerDetails.isDeleted">
+                        <a routerLink="edit" class="link-dark d-inline-flex text-decoration-none rounded">Edit</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="b-example-divider b-example-vr"></div>

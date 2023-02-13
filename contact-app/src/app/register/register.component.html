@@ -1,0 +1,60 @@
+<div class="container" style="margin-top:30px;">
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+      <div class="text-center">
+        <h3 class="mb-3">Sign Up</h3>
+      </div>
+      <hr class="my-4">
+      <form [formGroup]="registrationForm" (ngSubmit)="onRegister()">
+        <div class="row g-3">
+
+          <div class="col-12">
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-person"></i></span>
+              <input class="form-control" placeholder="Full Name" formControlName="name" type="text">
+            </div>
+            <span *ngIf="!registrationForm.get('name')?.valid" 
+            class="help-block">{{ registrationForm.get('name')?.errors?.[0] }}</span>
+          </div>
+
+          <div class="col-12">
+            <div class="input-group">
+              <span class="input-group-text">@</span>
+              <input class="form-control" placeholder="Username" formControlName="username" type="text">
+            </div>
+            <span *ngIf="!registrationForm.get('username')?.valid" 
+            class="help-block">{{ registrationForm.get('username')?.errors?.[0] }}</span>
+          </div>
+
+          <div class="col-12">
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-envelope-open"></i></span>
+              <input class="form-control" placeholder="you@example.com" formControlName="email" type="email">
+            </div>
+            <span *ngIf="!registrationForm.get('email')?.valid" 
+            class="help-block">{{ registrationForm.get('email')?.errors?.[0] }}</span>
+          </div>
+
+          <div class="col-12">
+            <input class="form-control" placeholder="Password" formControlName="password" type="password">
+            <span *ngIf="!registrationForm.get('password')?.valid" 
+            class="help-block">{{ registrationForm.get('password')?.errors?.[0] }}</span>
+          </div>
+
+          <div class="col-12">
+            <input class="form-control" placeholder="Confirm Password" formControlName="confirmPassword" type="password">
+            <span *ngIf="!registrationForm.get('confirmPassword')?.valid" 
+            class="help-block">{{ registrationForm.get('confirmPassword')?.errors?.[0] }}</span>
+          </div>
+        </div>
+
+        <button class="w-50 btn btn-secondary btn-lg mt-3" type="submit" style="margin-inline-start:25%;">Register</button>
+
+        <hr class="my-4">
+
+      </form>
+      <span class="text-black-50">Already have an account? <a routerLink="/login" class="link-primary" 
+        style="cursor: pointer;">Log in</a></span>
+    </div>
+  </div>
+</div>
